@@ -1,0 +1,11 @@
+.h1 {
+	font-size: 130px;
+	text-align: center;
+	color: rgba(47, 92, 175, 0.15);
+}
+
+#carousel-1 {
+    margin-left: 200px;
+    max-width: 72%;
+    margin-top: -1px;
+}
