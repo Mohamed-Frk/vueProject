@@ -54,11 +54,11 @@ import Vue from 'vue'
 
 export default {
 
-    data () { // Permet de déclarer un state
+    data () { 
         return {
 
-            todos: [], // liste des taches à faire
-            newTodo: '', // sauvegarde la nouvelle tache que je suis en train de créer 
+            todos: [], 
+            newTodo: '', 
             filter: 'all',
             editing:null,
             oldTodo: ''         
@@ -67,35 +67,35 @@ export default {
 
     methods: {
 
-        addTodo () { // permet de rajouter une nouvelle tache dans la liste
+        addTodo () { // allows you to add a new task to the list
 
             this.todos.push({
 
                 completed: false,
                 name: this.newTodo
             });
-            this.newTodo='' // permet de vider le champs 
+            this.newTodo='' // allows you to clear the field 
 
         },
 
-        deleteTodo (todo) { // permet de supprimer une tâche dans la liste
+        deleteTodo (todo) { // allows you to delete a task from the list
             this.todos = this.todos.filter(i => i !== todo)
         },
 
-        deleteCompleted() { // permet de suprimer une ou plusieurs tâches finis dans la liste
+        deleteCompleted() { // allows you to delete one or more finished tasks from the list
             this.todos = this.todos.filter(todo => !todo.completed)
         },
 
-        editTodo(todo) { // permet de spécifier le champs à éditer
+        editTodo(todo) { // allows you to specify the field to be edited
             this.editing = todo
             this.oldTodo = todo.name
         },
 
-        doneEdit () { // permet d'arrêter l'édition du champ
+        doneEdit () { // allows you to stop editing the field
             this.editing = null
         },
 
-        cancelEdit () { // permet d'annuler l'édition du champ 
+        cancelEdit () { // cancels the editing of the field 
             this.editing.name = this.oldTodo
             this.doneEdit()
         }
@@ -103,7 +103,7 @@ export default {
 
     computed: {
 
-        allDone: { // permet de gérer l'input de selection de toutes les tâches
+        allDone: { // allows you to manage the selection input of all tasks 
 
             get () {
 
@@ -120,13 +120,13 @@ export default {
             } 
 
         }, 
-        // applique un filtre sur le tableau todos et on retourne les tâches à faire 
+        //  applies a filter on the todos table and returns the tasks to be done
         remaining () { return this.todos.filter(todo => !todo.completed).length },
 
-        // applique un filtre sur le tableau todos et on retourne les tâches completées
+        // applies a filter on the todos table and returns the completed tasks
         completed () { return this.todos.filter(todo => todo.completed).length },
 
-        filteredTodos () { // permet de différencier toutes les tâches / a faire / faite 
+        filteredTodos () { // allows to differentiate all tasks 
 
             if(this.filter === 'todo') {
 
